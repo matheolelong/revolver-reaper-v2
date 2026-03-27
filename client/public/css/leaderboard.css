@@ -1,0 +1,34 @@
+.leaderboardButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+    margin-left: 50px;
+	margin-top: 50px;
+
+	box-sizing: border-box;
+	margin-bottom: 50px;
+	font-size: 40px;
+	color: #FFF;
+
+	text-decoration: none;
+	font-family: 'VT323';
+
+	position: relative;
+	width: 300px;
+	height: 100px;
+
+	background: rgba(0, 0, 0, 0.5);
+	border: 1px solid #2C2C2C;
+	border-radius: 8px;
+}
+
+.leaderboard {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'VT323', monospace;
+    font-size: 40px;
+    gap: 10px;
+}

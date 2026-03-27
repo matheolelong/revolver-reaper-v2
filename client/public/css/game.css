@@ -1,0 +1,38 @@
+.bpout {
+    display: inline-block;
+    height: 1.5em;
+    width: 20em;
+    max-width: 90%;
+    background: linear-gradient(rgb(255, 255, 255) 10%, rgba(200, 200, 255, 1) 25%, rgb(255, 255, 255) 45%);
+    border: 1.5px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 5px 5px rgba(100, 100, 100, 1);
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 5;
+    width: 20%;
+}
+
+.bpin {
+    display: inline-block;
+    height: 100%;
+    border-radius: 10px;
+
+    &.high {
+        background: linear-gradient(to bottom, rgb(0, 255, 0) 10%, white 25%, rgb(0, 255, 0) 42%);
+    }
+
+    &.mid {
+        background: linear-gradient(to bottom, rgb(255, 255, 0) 10%, white 25%, rgb(255, 255, 0) 42%);
+    }
+
+    &.low {
+        background: linear-gradient(to bottom, rgb(255, 0, 0) 10%, white 25%, rgb(255, 0, 0) 42%);
+    }
+}
+
+.gamePlace {
+    display: flex;
+}
