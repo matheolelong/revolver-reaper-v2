@@ -16,13 +16,13 @@ import type MouseMove from './move/MouseMove.ts';
 import mouseMoving from './move/mouseMoving.ts';
 
 const assets = new Assets();
-export const socket = io(window.location.hostname + ':1234');
+export const socket = io('http://92.188.23.65:1234/');
 
 let x: number = 0;
 let y: number = 0;
 let vitesseX: number = 0;
 let vitesseY: number = 0;
-const vitesse: number = 6;
+const vitesse: number = 20;
 const scale: number = 5;
 
 let players: Player[] = [];
@@ -36,7 +36,7 @@ let isMouseDown = false;
 let mouseX = 0;
 let mouseY = 0;
 let lastShootTime = 0;
-const shootInterval = 100;
+const shootInterval = 10;
 
 let mouseMovingX = 0;
 let mouseMovingY = 0;
@@ -253,14 +253,16 @@ function update() {
 				const playerBoxH = assets.playerSouth.height
 					? assets.playerSouth.height * scale
 					: 160;
-				const targetAngle = Math.atan2(
-					mouseY - (y + playerBoxW / 2),
-					mouseX - (x + playerBoxH / 2)
-				);
-				socket.emit('shoot', {
-					x: x + playerBoxW / 2,
-					y: y + playerBoxH / 2,
-					angle: targetAngle,
+				const tab: number[] = [0,-1,1,0.5,-0.5]
+				tab.forEach( i => {
+					tab.forEach( j => {
+						const angle = Math.atan2(i,j);
+						socket.emit('shoot', {
+							x: x + playerBoxW / 2,
+							y: y + playerBoxH / 2,
+							angle: angle,
+						});
+					})
 				});
 				lastShootTime = now;
 			}
